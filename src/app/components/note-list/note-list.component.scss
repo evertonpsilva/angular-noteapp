@@ -1,0 +1,78 @@
+div.main-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    overflow: hidden;
+}
+
+div.search{
+    height: 38px;
+    background: #eee;
+    border-radius: 3px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    input{
+        border: 0;
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding: 0;
+        background: transparent;
+        padding-left: 5px;
+    }
+}
+
+div.list-container{
+    padding: 0 10px;
+    margin-bottom: 135px;
+    height: 100%;
+    flex-direction: column;
+    overflow-y: scroll;
+    div.item{
+        background-color: #fff;
+        box-shadow: 0px 0px 7px #ccc;
+        padding: 24px 18px;
+        margin-bottom: 24px;
+        h3{
+            font-weight: 600;
+            margin-bottom: 0;
+            color: #011627;
+        }
+        p{
+            color: #777;
+            font-weight: 500;
+        }
+    }
+    
+}
+.button-container{
+    position: fixed;
+    bottom: 0;
+    width: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    .add-button{
+        background-color: #011627;
+        width: calc(100% - 20px);
+        height: 60px;
+        border: none;
+        border-radius: 0;
+        font-size: 20px;
+        box-shadow: 0px 0px 7px #ccc;
+    }
+}
+
+div.list-container::-webkit-scrollbar {
+    display: none;
+}
+
+.container-app{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

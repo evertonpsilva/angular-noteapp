@@ -1,0 +1,13 @@
+:host ::ng-deep{
+    .app{
+        height: 100vh;
+        overflow: hidden;
+        .appbar{
+            background-color: #011627;
+        }
+        .content{
+            width: 45%;
+            margin: auto;
+        }
+    }
+}

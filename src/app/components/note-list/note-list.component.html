@@ -1,0 +1,17 @@
+<div class="main-container">
+  <div class="container-app">
+    <div class="list-container" @list>
+      <div class="search">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+        <input placeholder="Filter"/>
+      </div>
+      <div *ngFor="let item of list" @items class="item">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button class="add-button" routerLink='new'>+ Add</button>
+    </div>
+  </div>
+</div>
