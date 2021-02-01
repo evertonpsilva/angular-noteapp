@@ -9,6 +9,7 @@ import { NoteListComponent } from './components/note-list/note-list.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
 import {MatIconModule} from '@angular/material/icon';
 import { NoteService } from './services/note.service';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,10 +23,13 @@ import { NoteService } from './services/note.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     NoteService,
+    FormBuilder,
   ],
   bootstrap: [AppComponent]
 })
