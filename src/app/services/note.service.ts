@@ -5,35 +5,46 @@ import * as uuid from 'uuid';
 @Injectable()
 export class NoteService{
 
+    private _editingItem: Note = null;
+
+    get editingItem(){
+        return this._editingItem;
+    }
+
+    set editingItem(note: Note){
+        this._editingItem = note;
+    }
+
     private _noteList: Note[] = [
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
-        {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
         {id: uuid.v4(), title: 'teste1', description: 'teste descricao', active: true},
     ];
 
-    get getAll(): Note[]{
+    getAll(): Note[]{
         return this._noteList;
     }
 
     add(note: Note){
-        this._noteList.push(note);
+        if(note.id != null){
+            this.put(note);
+        }else{
+            const newNote: Note = {...note, active: true, id: uuid.v4()};
+            this._noteList.push(newNote);
+        }
     }
 
     put(noteUpdated: Note){
         let noteIndex = this.getNoteIndex(noteUpdated);
-
         this._noteList[noteIndex] = noteUpdated;
     }
 
     delete(note: Note){
         const noteIndex = this.getNoteIndex(note);
-
+        console.log(this._noteList);
         this._noteList.splice(noteIndex, 1);
+    }
+
+    filterList(query: string){
+        return this.getAll().filter((note) => note.title.includes(query) || note.description.includes(query));
     }
 
     private getNoteIndex(noteParameter: Note): number{

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NoteService } from 'src/app/services/note.service';
+import { ValidateUtils } from 'src/app/utils/validate.utils.interface';
 
 @Component({
   selector: 'app-add-note',
@@ -12,17 +15,27 @@ export class AddNoteComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private noteService: NoteService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [],
-      description: []
+      id: [null],
+      title: [null],
+      description: [null],
+      active: [null]
     });
+    const editingItem = this.noteService.editingItem;
+    if(editingItem){
+      this.form.patchValue(editingItem);
+    }
   }
 
   save(): void{
-    console.log(this.form);
+    this.noteService.add(this.form.value);
+    this.router.navigate(['/']);
   }
 
 }

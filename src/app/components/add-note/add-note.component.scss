@@ -1,0 +1,12 @@
+:host ::ng-deep{
+    .add-container{
+        padding-top: 36px;
+        .actions{
+            button{
+                height: 52px;
+                flex: 1;
+                border-radius: 0;
+            }
+        }
+    }
+}

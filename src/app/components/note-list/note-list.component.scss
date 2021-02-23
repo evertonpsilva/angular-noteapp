@@ -36,17 +36,47 @@ div.list-container{
         box-shadow: 0px 0px 7px #ccc;
         padding: 24px 18px;
         margin-bottom: 24px;
-        h3{
-            font-weight: 600;
-            margin-bottom: 0;
-            color: #011627;
+        max-height: 144px;
+        overflow: hiden;
+        .item-info{
+            overflow: hidden;
+            h3{
+                font-weight: 600;
+                margin-bottom: 0;
+                color: #011627;
+            }
+            p{
+                color: #777;
+                font-weight: 500;
+            }
+            h3,p{
+                overflow: hidden;
+                max-width: 100%;
+                text-overflow: ellipsis;
+            }
         }
-        p{
-            color: #777;
-            font-weight: 500;
+        .item-actions{
+            transition: 0.2s ease all;
+            visibility: hidden;
+            opacity: 0;
+            button{
+                margin: 3px 0;
+            }
         }
     }
-    
+    div.item:hover{
+        .item-actions{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    div.item.inactive{
+        .item-info{
+            h3,p{
+                text-decoration: line-through;
+            }
+        }
+    }
 }
 .button-container{
     position: fixed;

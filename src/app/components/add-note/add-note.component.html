@@ -1,5 +1,16 @@
 <div class="add-container">
-    <form [formGroup]="form" (submit)="save()">
-        <button type="submit">a</button>
+    <form [formGroup]="form" (submit)="save()" fxLayout="column" class="add-form">
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="actions" fxLayout="row" fxLayoutAlign="center center">
+            <button mat-flat-button color="accent" routerLink='/'>cancel</button>
+            <button mat-flat-button type="submit" color="primary">save</button>
+        </div>
     </form>
 </div>

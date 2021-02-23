@@ -1,0 +1,79 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$md-primarycollor: (
+    50 : #e1e3e5,
+    100 : #b3b9be,
+    200 : #808b93,
+    300 : #4d5c68,
+    400 : #273947,
+    500 : #011627,
+    600 : #011323,
+    700 : #01101d,
+    800 : #010c17,
+    900 : #00060e,
+    A100 : #517aff,
+    A200 : #1e53ff,
+    A400 : #0037ea,
+    A700 : #0031d0,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-accentcollor: (
+    50 : #ffe4ed,
+    100 : #febcd3,
+    200 : #fe8fb6,
+    300 : #fe6299,
+    400 : #fd4083,
+    500 : #fd1e6d,
+    600 : #fd1a65,
+    700 : #fc165a,
+    800 : #fc1250,
+    900 : #fc0a3e,
+    A100 : #ffffff,
+    A200 : #fff1f4,
+    A400 : #ffbeca,
+    A700 : #ffa5b5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+.alternate.mat-sucess{
+    color: #fff;
+    background-color: #20BE19;
+}
+
+$my-app-primary: mat-palette($md-primarycollor);
+$my-app-accent:  mat-palette($md-accentcollor);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);

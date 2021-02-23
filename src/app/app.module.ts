@@ -10,6 +10,9 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
 import {MatIconModule} from '@angular/material/icon';
 import { NoteService } from './services/note.service';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatInputModule,
+    MatMenuModule,
   ],
   providers: [
     NoteService,
